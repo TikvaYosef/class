@@ -157,87 +157,101 @@ class Car {
     wheels;
     capacity;
     color;
-    
-    constructor(wheels,capacity,color){
-        this.wheels = wheels;
-        this.capacity = capacity;
-        this.color = color;
 
-    }
+    // constructor(wheels, capacity, color) {
+    //     this.wheels = wheels;
+    //     this.capacity = capacity;
+    //     this.color = color;
 
-    // constructor(inp1, inp2, inp3) {
-    //     this.wheels = inp1.value;
-    //     this.capacity = inp2.value;
-    //     this.color = inp3.value;
     // }
+
+    constructor(inp1, inp2, inp3) {
+        this.wheels = inp1.value;
+        this.capacity = inp2.value;
+        this.color = inp3.value;
+    }
 
     str() {
         return `${this.wheels} ${this.capacity} ${this.color}`
     }
 
-    static bigCapacity(capacity1, capacity2) {
-        return this.capacity1 > this.capacity2 ? capacity1 : capacity2;
+    static bigCapacity(arrayOfNumber) {
+        let max = arrayOfNumber[0].capacity
+        for (const item of arrayOfNumber) {
+            if (item.capacity > max) max = item.capacity;
+        }
+        return max
     }
 
 }
 const car1 = new Car(4, 1800, "red")
-const car2 = new Car(2, 1600, "vdds")
+const car2 = new Car(2, 1600, "black")
+const car3 = new Car(4, 1200, "blue")
 console.log(car1.str())
-console.log(Car.bigCapacity(car1, car2))
+console.log(Car.bigCapacity([car1, car2, car3]))
 
-btn.onclick = () => {
-    div1.innerHTML += `<table><tr><td>${inp1.value } </td><td>${inp2.value}</td><td> ${inp3.value}</td></tr></table>`
-}
+// btn.onclick = () => {
+//     switch (typeOfCar.value.toLowerCase) {
+//         case "truk":
+//             return new Truck(inp1.value, inp3.value, inp4.value)
+//         case "bus":
+//             return new Bus(inp1.value, inp2.value, inp3.value)
+//             case "plane":
+//             return new Plane(inp1.value, inp2.value, inp3.value)
+
+//     }
+//     div1.innerHTML += `<table><tr><td>${inp1.value} </td><td>${inp2.value}</td><td> ${inp3.value}</td></tr></table>`
+// }
 
 
-class Truck extends Car {
-    name;
-    constructor(wheels1, capacity1, color1, name1) {
-        super(wheels1, capacity1, color1);
-        this.name = name1;
+// class Truck extends Car {
+//     name;
+//     constructor(wheels1, capacity1, color1, name1) {
+//         super(wheels1, capacity1, color1);
+//         this.name = name1;
 
-    }
-    string1() {
-        return `${ super.str() } ${ this.name } `
-    }
+//     }
+//     string1() {
+//         return `${super.str()} ${this.name} `
+//     }
 
-    bigLetters1() {
-        return this.name.toUpperCase()
-    }
+//     bigLetters1() {
+//         return this.name.toUpperCase()
+//     }
 
-    get bigLettersAll1() {
-        return this.bigLetters1()
-    }
+//     get bigLettersAll1() {
+//         return this.bigLetters1()
+//     }
 
-}
-const truck1 = new Truck(4, 1900, "yelow", "truky")
-console.log(truck1.string1())
-console.log(truck1.bigLettersAll1)
+// }
+// const truck1 = new Truck(4, 1900, "yelow", "truky")
+// console.log(truck1.string1())
+// console.log(truck1.bigLettersAll1)
 
-class Bus extends Car {
-    name;
-    constructor(wheels1, capacity1, color1, name1) {
-        super(wheels1, capacity1, color1);
-        this.name = name1;
+// class Bus extends Car {
+//     name;
+//     constructor(wheels1, capacity1, color1, name1) {
+//         super(wheels1, capacity1, color1);
+//         this.name = name1;
 
-    }
-    string1() {
-        return `${ super.str() } ${ this.name } `
-    }
-}
+//     }
+//     string1() {
+//         return `${super.str()} ${this.name} `
+//     }
+// }
 
-class Plane extends Car {
-    name;
-    constructor(wheels1, capacity1, color1, name1) {
-        super(wheels1, capacity1, color1);
-        this.name = name1;
-    }
+// class Plane extends Car {
+//     name;
+//     constructor(wheels1, capacity1, color1, name1) {
+//         super(wheels1, capacity1, color1);
+//         this.name = name1;
+//     }
 
-    string1() {
-        return `${ super.str() } ${ this.name } `
-    }
+//     string1() {
+//         return `${super.str()} ${this.name} `
+//     }
 
-}
+// }
 
 // =========================================================================
 
@@ -272,28 +286,32 @@ class Plane extends Car {
 // לאחר מכן היא משווה בין שני אובייקטים, כדי לקבוע האם הראשון מכיל ערכי מאפיינים שווי ערך לזה השני. אחד מהאובייקטים ניצור ידנית בקוד (הארדקודד).= לכתוב אובייקט ידנית.
 
 
-// class Users {
-//     name;
-//     password;
-//     mail;
-//     userName;
+class Users {
+    name;
+    password;
+    mail;
+    userName;
 
-//     constructor(inp1, inp2, inp3, inp4) {
-//         this.name = inp1;
-//         this.password = inp2;
-//         this.mail = inp3;
-//         this.userName = inp4;
-//     }
+    constructor(inp1, inp2, inp3, inp4) {
+        this.name = inp1;
+        this.password = inp2;
+        this.mail = inp3;
+        this.userName = inp4;
+    }
 
 
 
-// }
-// const user2 = new Users("tikva","1234564","tikva@gmail","tiki")
-// btn.onclick = () => {
-//     const user1 = new Users(inp1.value, inp2.value, inp3.value, inp4.value)
-//     console.log(user1)
+}
+const user2 = new Users("tikva", "1234564", "tikva@gmail", "tiki")
+btn.onclick = () => {
+    const user1 = new Users(inp1.value, inp2.value, inp3.value, inp4.value)
+    console.log(user1)
+    for (const key in user1) {
+        (user1[key] == user2[key])? console.log(`${key}: same`):console.log(`${key}: not the same`)
+        
+    }
 
-// }
+}
 
 
 //  שאלה 3
